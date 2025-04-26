@@ -13,7 +13,7 @@ from utils.temp_dir import TEMP_DIR
 
 Image.MAX_IMAGE_PIXELS = None
 
-def create_best_diagram(process_id, view, data):
+def create_best_diagram(process_id, view, data) -> Path:
     work_dir = TEMP_DIR / str(process_id)
     work_dir.mkdir(parents=True, exist_ok=True)
 
@@ -41,7 +41,9 @@ def create_best_diagram(process_id, view, data):
         if file.is_file() and file != best_layout:
             file.unlink()
 
-    
+    return best_layout
+
+        
 def run_structurizr(json_path):
     structurizr_cmd = ["structurizr-cli", "export", "-f", "dot", "-w", json_path]
     try:
