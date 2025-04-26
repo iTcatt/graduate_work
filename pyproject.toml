@@ -1,0 +1,18 @@
+[project]
+name = "bester"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cairosvg>=2.7.1",
+    "fastapi>=0.115.11",
+    "huggingface-hub>=0.30.2",
+    "pillow>=11.1.0",
+    "timm>=1.0.15",
+    "torch>=2.6.0",
+    "torchaudio>=2.6.0",
+    "torchvision>=0.21.0",
+    "transformers>=4.49.0",
+    "uvicorn>=0.34.0",
+]

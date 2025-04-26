@@ -1,0 +1,12 @@
+__pycache__
+.DS_Store
+
+.vscode
+.idea
+.venv
+
+openai
+
+*.png
+*.svg
+*.dot
