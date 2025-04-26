@@ -23,11 +23,10 @@ def create_best_diagram(process_id, view, data) -> Path:
 
     run_structurizr(json_path)
 
-    target_dot_file = find_dot_view(work_dir, view)
+    target_dot_file = next(work_dir.glob(f"*{view}.dot"), None)
     if target_dot_file == None:
         print(f".dot файл с окончанием '{view}' не найден.")
         return
-
     
     improve_dot_file(target_dot_file)
 
@@ -52,17 +51,6 @@ def run_structurizr(json_path):
         print(f"Ошибка при выполнении structurizr-cli export: {e}")
         return
     
-
-def find_dot_view(work_dir, targetView):
-    dot_files = list(work_dir.glob("*.dot"))
-    target_dot_file = None
-    for f in dot_files:
-        if f.stem.endswith(targetView):
-            target_dot_file = f
-            break
-
-    return target_dot_file
-
 
 def improve_dot_file(dot_file):
     with open(dot_file, 'r', encoding='utf-8') as file:
