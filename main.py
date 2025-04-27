@@ -23,7 +23,7 @@ def is_view_exist(data, target_view) -> bool:
     return result
 
 
-@app.post("/{target_view}/init")
+@app.post("/api/best/{target_view}")
 async def start_creating_diagrams(target_view: str, request: Request):
     process_id = uuid.uuid4()   
     try:
